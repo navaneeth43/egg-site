@@ -1,4 +1,4 @@
-[README (1).md](https://github.com/user-attachments/files/21688018/README.1.md)[Upl
+<img width="1920" height="1008" alt="image" src="https://github.com/user-attachments/assets/bb421a58-b795-4ef2-a164-e1acabe67695" />[README (1).md](https://github.com/user-attachments/files/21688018/README.1.md)[Upl
 <img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
 
@@ -24,10 +24,10 @@ If you click "Yes" → You’re instantly redirected to one of several random ga
 This creates a playful, unpredictable experience for the user.
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+Most games are predictable. This project adds humor and surprise by showing random images and launching a random game when the user clicks "Yes."
 
 ### The Solution (that nobody asked for)
-[How are you solving it? Keep it fun!]
+using html,css make a fun website note useless but they are good to use
 
 ## Technical Details
 ### Technologies/Components Used
@@ -36,54 +36,25 @@ For Software:
 - Css
 - VS code
 
-For Hardware:
-- [List main components]
-- [List specifications]
-- [List tools required]
-
-### Implementation
-For Software:
-# Installation
-[commands]
-
-# Run
-[commands]
-
 ### Project Documentation
 For Software:
 
-# Screenshots (Add at least 3)
+# Screenshots
 #https://drive.google.com/drive/folders/1Ac4825E_Vk052yBRvZz6JO1b97lJ_ffa?usp=sharing
 
-For Hardware:
-
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
 # Build Photos
-![Components](Add photo of your components here)
-*List out all components shown*
+https://drive.google.com/drive/folders/1Ac4825E_Vk052yBRvZz6JO1b97lJ_ffa?usp=sharing
 
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
 
 ### Project Demo
 # Video
 https://drive.google.com/drive/folders/1Ac4825E_Vk052yBRvZz6JO1b97lJ_ffa?usp=sharing
 
-# Additional Demos
-[Add any extra demo materials/links]
+
 
 ## Team Contributions
 - Navaneeth A P: Html,css
-- [Name 2]: Photos and additional iteams
+- Adish v p: Photos and additional iteams
 
 
 ---

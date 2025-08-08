@@ -1,5 +1,5 @@
 <img width="1920" height="1008" alt="image" src="https://github.com/user-attachments/assets/bb421a58-b795-4ef2-a164-e1acabe67695" />[README (1).md](https://github.com/user-attachments/files/21688018/README.1.md)[Upl
-<img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
+
 
 
 # Egg Site 🎯

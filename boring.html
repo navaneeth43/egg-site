@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Funny Boring Activities 🥱➡️😂</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #0b1220;
+      --accent: #8b5cf6;
+      --muted: #94a3b8;
+      --glass: rgba(255,255,255,0.03);
+    }
+    body {
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+      background: linear-gradient(160deg,#071024 0%, #0b1630 100%);
+      color: #e6eef8;
+      padding: 28px;
+    }
+    h1 { margin:0 0 12px; font-size: 28px; }
+    .wrap { display:grid; gap:18px; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.04);
+      padding: 14px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+      min-height:120px;
+    }
+    button, .btn {
+      appearance:none;
+      background: linear-gradient(180deg,var(--accent), #6d28d9);
+      color:white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor:pointer;
+      font-weight:600;
+      box-shadow: 0 6px 14px rgba(107,33,168,0.25);
+    }
+    .muted { color: var(--muted); font-size: 13px; }
+    .center { display:flex; align-items:center; justify-content:center; gap:8px; }
+    .progress-wrap { background: var(--glass); border-radius: 999px; padding: 6px; width:100%; }
+    .progress { height: 18px; background: rgba(139,92,246,0.18); border-radius: 999px; width:0%; transition: width 0.25s ease; text-align:center; font-size:12px; color: #eaeaff; }
+    .sheep { font-size: 22px; }
+    .fidget { width:100%; }
+    .maze {
+      height:110px; background: linear-gradient(90deg,#071338,#0b2a44); display:grid; grid-template-columns: repeat(8,1fr); gap:4px; padding:6px; border-radius:8px;
+      cursor: pointer;
+    }
+    .cell { background: rgba(255,255,255,0.03); border-radius:6px; min-height:8px; }
+    footer { margin-top:18px; font-size:13px; color:var(--muted); }
+    .tiny { font-size:12px; color:var(--muted); margin-top:6px; }
+  </style>
+</head>
+<body>
+  <h1>Funny Boring Activities 🥱➡️😂</h1>
+  <p class="muted">Tiny micro-activities for when you're bored but don't want to try too hard.</p>
+
+  <div class="wrap">
+    <!-- 1. Boredom Generator -->
+    <div class="card" id="genCard">
+      <h3>Boredom Generator</h3>
+      <p class="muted">Click for a tiny ridiculous task you *must not* finish.</p>
+      <div class="center" style="margin-top:8px;">
+        <button id="genBtn" class="btn">What's my boring task?</button>
+      </div>
+      <p class="tiny" id="genResult"></p>
+    </div>
+
+    <!-- 2. Watch Paint Dry -->
+    <div class="card">
+      <h3>Watch paint dry</h3>
+      <p class="muted">Progress bar. Feel productive while nothing happens.</p>
+      <div class="progress-wrap" style="margin-top:10px;">
+        <div id="paintProg" class="progress">0%</div>
+      </div>
+      <div class="center" style="margin-top:10px;">
+        <button id="startPaint" class="btn">Start drying</button>
+        <button id="resetPaint" style="background:#334155;color:white;padding:8px 10px;border-radius:10px;border:none;cursor:pointer;">Reset</button>
+      </div>
+    </div>
+
+    <!-- 3. Count Sheep -->
+    <div class="card">
+      <h3>Count Sheep</h3>
+      <p class="muted">Click to add a sheep. Try to fall asleep (no refunds).</p>
+      <div style="margin-top:8px; display:flex; gap:8px; align-items:center;">
+        <button id="sheepAdd" class="btn">Add sheep 🐑</button>
+        <button id="sheepReset" style="background:#334155;color:white;padding:8px 10px;border-radius:10px;border:none;cursor:pointer;">Reset</button>
+      </div>
+      <div class="tiny sheep" id="sheepLine" style="margin-top:8px;"></div>
+    </div>
+
+    <!-- 4. Button That Does Nothing -->
+    <div class="card">
+      <h3>Button That Does Nothing</h3>
+      <p class="muted">Press it. It says mean things to your cursor.</p>
+      <div class="center" style="margin-top:10px;">
+        <button id="pointless" class="btn">Do not press</button>
+      </div>
+      <div class="tiny" id="pointlessMsg" style="margin-top:8px;"></div>
+    </div>
+
+    <!-- 5. Fidget Slider -->
+    <div class="card">
+      <h3>Fidget Slider</h3>
+      <p class="muted">Slide to nowhere. Reset when done.</p>
+      <input id="fidget" class="fidget" type="range" min="0" max="100" value="50" />
+      <div class="tiny center" style="margin-top:8px;">
+        <div id="fidgetVal">50</div>
+        <div style="width:8px;"></div>
+        <button id="randFidget" style="background:#334155;color:white;padding:6px 10px;border-radius:10px;border:none;cursor:pointer;">Shuffle</button>
+      </div>
+    </div>
+
+    <!-- 6. Mini Maze / Scramble -->
+    <div class="card">
+      <h3>Mini Scramble Maze</h3>
+      <p class="muted">Click the panel to randomize pattern. It's meditative.</p>
+      <div class="maze" id="maze">
+        <!-- cells auto-created by JS -->
+      </div>
+      <div class="tiny center" style="margin-top:8px;">
+        <button id="fillMaze" style="background:#334155;color:white;padding:6px 10px;border-radius:10px;border:none;cursor:pointer;">Fill more</button>
+        <button id="clearMaze" style="background:#0b6b3a;color:white;padding:6px 10px;border-radius:10px;border:none;cursor:pointer;">Clear</button>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    Tip: each activity is short — perfect for pretending you did something productive for 37 seconds.
+  </footer>
+
+  <script>
+    // 1. Boredom generator
+    const tasks = [
+      "Organize your imaginary sock drawer.",
+      "Stare at the top right corner of this page for 10 seconds.",
+      "Name 7 flavors of invisible ice cream.",
+      "Whisper to your left shoe and wait for a response.",
+      "Write a 3-word haiku about paperclips.",
+      "Pretend to be a 'loading' icon for 8 seconds.",
+      "Balance a pen on your finger (not guaranteed).",
+      "Make the sound of quantum silence."
+    ];
+    const genBtn = document.getElementById('genBtn');
+    const genResult = document.getElementById('genResult');
+    genBtn.addEventListener('click', () => {
+      const r = tasks[Math.floor(Math.random()*tasks.length)];
+      genResult.textContent = "→ " + r;
+      genCard.animate([{ transform: 'translateY(6px)' }, { transform: 'translateY(0)' }], { duration:220 });
+    });
+
+    // 2. Paint progress
+    let paintInterval = null;
+    const paintProg = document.getElementById('paintProg');
+    document.getElementById('startPaint').addEventListener('click', () => {
+      if (paintInterval) return;
+      let p = 0;
+      paintProg.style.width = "0%";
+      paintProg.textContent = "0%";
+      paintInterval = setInterval(() => {
+        // very slow, slightly random
+        p += Math.random()*3;
+        if (p >= 100) { p = 100; paintProg.style.width = "100%"; paintProg.textContent = "Dry ✅"; clearInterval(paintInterval); paintInterval = null; }
+        else {
+          paintProg.style.width = p + "%";
+          paintProg.textContent = Math.floor(p) + "%";
+        }
+      }, 450);
+    });
+    document.getElementById('resetPaint').addEventListener('click', () => {
+      clearInterval(paintInterval); paintInterval = null;
+      paintProg.style.width = "0%"; paintProg.textContent = "0%";
+    });
+
+    // 3. Count sheep
+    const sheepLine = document.getElementById('sheepLine');
+    let sheepCount = 0;
+    document.getElementById('sheepAdd').addEventListener('click', () => {
+      sheepCount++;
+      if (sheepCount > 25) sheepCount = 1; // keep it reasonable
+      sheepLine.textContent = "🐑 ".repeat(sheepCount);
+    });
+    document.getElementById('sheepReset').addEventListener('click', () => {
+      sheepCount = 0; sheepLine.textContent = "";
+    });
+
+    // 4. Pointless button
+    const pointlessMsg = document.getElementById('pointlessMsg');
+    const pointless = document.getElementById('pointless');
+    const snark = [
+      "Fine. You pressed it.",
+      "Clicking achieves nothing. Also pride.",
+      "It hums politely.",
+      "Cursor feels judged.",
+      "Error: Motivation not found."
+    ];
+    pointless.addEventListener('click', () => {
+      const m = snark[Math.floor(Math.random()*snark.length)];
+      pointlessMsg.textContent = m;
+      // tiny bubble effect
+      const b = document.createElement('div');
+      b.textContent = "•";
+      b.style.position = 'absolute';
+      b.style.left = (window.innerWidth/2 + (Math.random()-0.5)*300) + 'px';
+      b.style.top = (window.scrollY + 120 + (Math.random()-0.5)*80) + 'px';
+      b.style.opacity = '0.85'; b.style.fontSize = '20px';
+      document.body.appendChild(b);
+      b.animate([{ transform:'translateY(0)', opacity:1 },{ transform:'translateY(-60px)', opacity:0 }], { duration:700 }).onfinish = () => b.remove();
+    });
+
+    // 5. Fidget slider
+    const fidget = document.getElementById('fidget');
+    const fidgetVal = document.getElementById('fidgetVal');
+    fidget.addEventListener('input', (e) => fidgetVal.textContent = e.target.value);
+    document.getElementById('randFidget').addEventListener('click', () => {
+      const v = Math.floor(Math.random()*101);
+      fidget.value = v;
+      fidgetVal.textContent = v;
+    });
+
+    // 6. Mini maze / scramble
+    const maze = document.getElementById('maze');
+    const cols = 8, rows = 4;
+    function makeMazeCells() {
+      maze.innerHTML = '';
+      for (let i=0;i<cols*rows;i++){
+        const c = document.createElement('div');
+        c.className = 'cell';
+        c.dataset.idx = i;
+        maze.appendChild(c);
+      }
+      randomizeMaze();
+    }
+    function randomizeMaze(fill=0.35) {
+      const cells = Array.from(maze.children);
+      cells.forEach((cell)=>{
+        const r = Math.random();
+        if (r < fill) {
+          cell.style.background = 'linear-gradient(180deg, rgba(139,92,246,0.22), rgba(139,92,246,0.12))';
+          cell.style.transform = `rotate(${(Math.random()-0.5)*6}deg) scale(${0.95 + Math.random()*0.12})`;
+        } else {
+          cell.style.background = 'rgba(255,255,255,0.03)';
+          cell.style.transform = 'rotate(0) scale(1)';
+        }
+      });
+    }
+    maze.addEventListener('click', () => randomizeMaze(0.35 + Math.random()*0.45));
+    document.getElementById('fillMaze').addEventListener('click', () => randomizeMaze(0.8));
+    document.getElementById('clearMaze').addEventListener('click', () => randomizeMaze(0.03));
+    makeMazeCells();
+
+    // small accessibility & keyboard shortcut: press B to get a boring task
+    window.addEventListener('keydown', (e) => {
+      if (e.key.toLowerCase() === 'b') genBtn.click();
+      if (e.key === ' ') { pointless.click(); e.preventDefault(); }
+    });
+
+    // tiny onboarding hint
+    (function hint(){
+      const seen = localStorage.getItem('boring-hint');
+      if (!seen) {
+        genResult.textContent = "Tip: press B for a random task. Space activates the 'do not press' button.";
+        localStorage.setItem('boring-hint', '1');
+        setTimeout(()=>genResult.textContent = "", 4200);
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Snake Xenzia</title>
+<style>
+  body {
+    background: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #0f0;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  canvas {
+    background: #111;
+    display: block;
+    border: 2px solid #0f0;
+  }
+  h1 {
+    color: #0f0;
+    margin-bottom: 10px;
+  }
+  #restartBtn {
+    margin-top: 15px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background: #0f0;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: none; /* Hidden initially */
+  }
+  #restartBtn:hover {
+    background: #0c0;
+  }
+</style>
+</head>
+<body>
+<h1>Snake Xenzia</h1>
+<canvas id="game" width="400" height="400"></canvas>
+<button id="restartBtn">Restart</button>
+
+<script>
+  const canvas = document.getElementById('game');
+  const ctx = canvas.getContext('2d');
+  const restartBtn = document.getElementById('restartBtn');
+
+  const gridSize = 20;
+  const tileCount = canvas.width / gridSize;
+
+  let snake;
+  let velocityX;
+  let velocityY;
+  let food;
+  let score;
+  let gameOver;
+
+  function init() {
+    snake = [{ x: 9, y: 9 }];
+    velocityX = 1;
+    velocityY = 0;
+    score = 0;
+    gameOver = false;
+    placeFood();
+    restartBtn.style.display = 'none';
+  }
+
+  function draw() {
+    if (gameOver) {
+      ctx.fillStyle = 'red';
+      ctx.font = '50px monospace';
+      ctx.fillText('Game Over!', 70, canvas.height / 2);
+      ctx.font = '20px monospace';
+      ctx.fillText('Score: ' + score, 150, canvas.height / 2 + 40);
+      restartBtn.style.display = 'inline-block';
+      return;
+    }
+
+    // Move snake
+    let head = { x: snake[0].x + velocityX, y: snake[0].y + velocityY };
+
+    // Check wall collision
+    if (
+      head.x < 0 || head.x >= tileCount ||
+      head.y < 0 || head.y >= tileCount
+    ) {
+      gameOver = true;
+    }
+
+    // Check self collision
+    for (let part of snake) {
+      if (part.x === head.x && part.y === head.y) {
+        gameOver = true;
+      }
+    }
+
+    if (gameOver) {
+      draw();
+      return;
+    }
+
+    snake.unshift(head);
+
+    // Check food eaten
+    if (head.x === food.x && head.y === food.y) {
+      score++;
+      placeFood();
+    } else {
+      snake.pop();
+    }
+
+    // Draw background
+    ctx.fillStyle = '#111';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Draw snake
+    ctx.fillStyle = '#0f0';
+    for (let part of snake) {
+      ctx.fillRect(part.x * gridSize, part.y * gridSize, gridSize - 2, gridSize - 2);
+    }
+
+    // Draw food
+    ctx.fillStyle = '#f00';
+    ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2);
+
+    // Draw score
+    ctx.fillStyle = '#0f0';
+    ctx.font = '18px monospace';
+    ctx.fillText('Score: ' + score, 10, 20);
+  }
+
+  function placeFood() {
+    food = {
+      x: Math.floor(Math.random() * tileCount),
+      y: Math.floor(Math.random() * tileCount),
+    };
+
+    // Make sure food is not on snake
+    for (let part of snake) {
+      if (part.x === food.x && part.y === food.y) {
+        placeFood();
+        break;
+      }
+    }
+  }
+
+  window.addEventListener('keydown', function (e) {
+    switch (e.key) {
+      case 'ArrowUp':
+        if (velocityY !== 1) {
+          velocityX = 0;
+          velocityY = -1;
+        }
+        break;
+      case 'ArrowDown':
+        if (velocityY !== -1) {
+          velocityX = 0;
+          velocityY = 1;
+        }
+        break;
+      case 'ArrowLeft':
+        if (velocityX !== 1) {
+          velocityX = -1;
+          velocityY = 0;
+        }
+        break;
+      case 'ArrowRight':
+        if (velocityX !== -1) {
+          velocityX = 1;
+          velocityY = 0;
+        }
+        break;
+    }
+  });
+
+  restartBtn.addEventListener('click', () => {
+    init();
+  });
+
+  init();
+  setInterval(draw, 100);
+</script>
+</body>
+</html>

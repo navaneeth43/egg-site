@@ -6,7 +6,7 @@
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [nothing kings]
 
 
 ### Team Members
@@ -14,10 +14,10 @@
 - Member 2: [Adish V P] - [ICCS COLLEGE OF ENGINNERING AND MANAGEMENT]
 
 ### Project Description
-[2-3 lines about what your project does]
+[Fun time project]
 
 ### The Problem (that doesn't exist)
-[What ridiculous problem are you solving?]
+[]
 
 ### The Solution (that nobody asked for)
 [How are you solving it? Keep it fun!]
@@ -25,10 +25,10 @@
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- [Html]
+- [css]
+- [JS]
+- [vs code]
 
 For Hardware:
 - [List main components]

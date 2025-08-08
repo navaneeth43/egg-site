@@ -14,7 +14,14 @@
 - Member 2: [Adish V P] - [ICCS COLLEGE OF ENGINNERING AND MANAGEMENT]
 
 ### Project Description
-[Fun time project]
+"Is This an Egg?" is a lighthearted and interactive web project that mixes humor with surprise.
+The page shows an image (often an egg) and asks "Is This an Egg?"
+
+If you click "No" → A new random image appears, along with a funny randomized response.
+
+If you click "Yes" → You’re instantly redirected to one of several random games!
+
+This creates a playful, unpredictable experience for the user.
 
 ### The Problem (that doesn't exist)
 []

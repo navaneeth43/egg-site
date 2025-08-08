@@ -2,11 +2,11 @@
 <img width="3188" height="1202" alt="frame (3)" src="https://github.com/user-attachments/assets/517ad8e9-ad22-457d-9538-a9e62d137cd7" />
 
 
-# [Nothing] 🎯
+# Egg Site 🎯
 
 
 ## Basic Details
-### Team Name: [Name]
+### Team Name: [nothing king]
 
 
 ### Team Members
@@ -53,18 +53,7 @@ For Software:
 For Software:
 
 # Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
-
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
-
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
-
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+#https://drive.google.com/drive/folders/1Ac4825E_Vk052yBRvZz6JO1b97lJ_ffa?usp=sharing
 
 For Hardware:
 
@@ -87,16 +76,15 @@ For Hardware:
 
 ### Project Demo
 # Video
-[Add your demo video link here]
-*Explain what the video demonstrates*
+https://drive.google.com/drive/folders/1Ac4825E_Vk052yBRvZz6JO1b97lJ_ffa?usp=sharing
 
 # Additional Demos
 [Add any extra demo materials/links]
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+- Navaneeth A P: Html,css
+- [Name 2]: Photos and additional iteams
+
 
 ---
 Made with ❤️ at TinkerHub Useless Projects 

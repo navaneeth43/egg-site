@@ -35,17 +35,33 @@
       const response = document.getElementById("response");
 
       // Random egg image
-      const randomImg = eggImages[Math.floor(Math.random() * eggImages.length)];
-      img.src = randomImg;
+      img.src = eggImages[Math.floor(Math.random() * eggImages.length)];
 
       // Random funny response
-      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-      response.textContent = randomResponse;
+      response.textContent = responses[Math.floor(Math.random() * responses.length)];
+    }
+
+    function randomize1() {
+      window.location.href = "games/maze.html";
+    }
+
+    function randomize2() {
+      window.location.href = "games/snake.html";
+    }
+
+    function randomize3() {
+      window.location.href = "games/boring.html";
     }
 
     function goToIndex1() {
-      // Redirect to index1.html
-      window.location.href = "mazec.html";
+      const randomNumber = Math.floor(Math.random() * 3) + 1; // 1, 2, or 3
+      if (randomNumber === 1) {
+        randomize1();
+      } else if (randomNumber === 2) {
+        randomize2();
+      } else {
+        randomize3();
+      }
     }
   </script>
 </body>

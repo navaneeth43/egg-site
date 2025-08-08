@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Is This an Egg?</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Is This an Egg?</h1>
+    <img id="egg-img" src="eggs/egg1.jpeg" alt="Egg" />
+    <div class="buttons">
+      <button onclick="respond()">Yes</button>
+      <button onclick="respond()">No</button>
+    </div>
+    <p id="response"></p>
+  </div>
+
+  <script>
+    const eggImages = ["eggs/egg1.jpeg", "eggs/egg2.jpeg", "eggs/egg3.jpeg"];
+    const responses = [
+      "We don't know either.",
+      "It might be a potato.",
+      "Running egg-xaminations...",
+      "Still analyzing...",
+      "Definitely maybe.",
+      "This egg refuses to answer.",
+    ];
+
+    function respond() {
+      const img = document.getElementById("egg-img");
+      const response = document.getElementById("response");
+
+      // Random new egg image
+      const randomImg = eggImages[Math.floor(Math.random() * eggImages.length)];
+      img.src = randomImg;
+
+      // Random response
+      const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+      response.textContent = randomResponse;
+    }
+  </script>
+</body>
+</html>

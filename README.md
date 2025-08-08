@@ -14,7 +14,14 @@
 - Member 2: [Adish V P] - [ICCS COLLEGE OF ENGINNERING AND MANAGEMENT]
 
 ### Project Description
-[2-3 lines about what your project does]
+"Is This an Egg?" is a lighthearted and interactive web project that mixes humor with surprise.
+The page shows an image (often an egg) and asks "Is This an Egg?"
+
+If you click "No" → A new random image appears, along with a funny randomized response.
+
+If you click "Yes" → You’re instantly redirected to one of several random games!
+
+This creates a playful, unpredictable experience for the user.
 
 ### The Problem (that doesn't exist)
 [What ridiculous problem are you solving?]
@@ -25,10 +32,9 @@
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- [Languages used]
-- [Frameworks used]
-- [Libraries used]
-- [Tools used]
+- Html
+- Css
+- VS code
 
 For Hardware:
 - [List main components]
